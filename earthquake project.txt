@@ -1,0 +1,41 @@
+import pandas as pd
+import numpy as np
+
+# Visualization
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Machine Learning & Preprocessing (for later use)
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
+
+# System & Warnings
+import warnings
+warnings.filterwarnings('ignore')
+print(" All libraries imported successfully!")
+
+# === 2. Load Dataset ===
+file_path = "/content/usgs_earthquake_data_2000_2025.csv"  # update if needed
+df = pd.read_csv(file_path)
+print(" Dataset Ready for Analysis\n")
+
+
+print(f"Shape: {df.shape[0]} rows × {df.shape[1]} columns")
+print("\nColumns:", ", ".join(df.columns))
+
+print("\nSample Rows:")
+print(df.sample(5))   # random 5 rows instead of head()
+
+print("\nDataset Info:")
+df.info()
+
+print("\nSummary Statistics:")
+print(df.describe(include='all').T)
+
+print("\nMissing Values per Column:")
+print(df.isnull().sum())
+
+print("\nUnique Values per Column:")
+print(df.nunique())
